@@ -1,22 +1,25 @@
-
-
-public class Solution {
+class Solution {
     public boolean halvesAreAlike(String s) {
-        Set<Character> vowels = new HashSet<>();
-        vowels.add('a'); vowels.add('e'); vowels.add('i'); vowels.add('o'); vowels.add('u');
-        vowels.add('A'); vowels.add('E'); vowels.add('I'); vowels.add('O'); vowels.add('U');
-
-        int vowelsCount = 0;
-        int midIndex = s.length() / 2;
-
-        for (int i = 0; i < midIndex; i++) {
-            char charA = s.charAt(i);
-            char charB = s.charAt(midIndex + i);
-            if (vowels.contains(charA)) vowelsCount++;
-            if (vowels.contains(charB)) vowelsCount--;
+        int u=s.length();
+        String str=s.substring(0,u/2);
+        String str2=s.substring(u/2,u);
+        int c2=0;
+        int c1=0;
+        for(int i=0;i<str.length();i++){
+            char c=str.charAt(i);
+            if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u' ||c=='A' || c=='E' || c=='I' || c=='O' || c=='U'){
+                c2++;
+            }
         }
-
-        return vowelsCount == 0;
+        for(int i=0;i<str2.length();i++){
+            char c=str2.charAt(i);
+            if(c=='a' || c=='e' || c=='i' || c=='o' || c=='u' ||c=='A' || c=='E' || c=='I' || c=='O' || c=='U'){
+                c1++;
+            }
+        }
+        if(c2==c1){
+            return true;
+        }
+        return false;
     }
 }
-
